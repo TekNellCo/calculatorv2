@@ -8,6 +8,16 @@
     width: 20rem;
     border: solid;
 }
+.operator{
+    width:10rem;
+    height:2rem;
+    border: solid ;
+}
+.screentwo{
+    width: 25rem;
+    height: 2rem;
+    border: solid red;
+}
 button{
     width: 4rem;
     height:4rem;
