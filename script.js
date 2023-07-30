@@ -5,7 +5,7 @@ let operatorScreen = document.querySelector('.operator');
 let operator = "";
 let variable = "";
 
-// GRABS EACH BUTTON AND INPUTS IT INTO THE SCREEN DIV NOT INCLUDING IF BUTTONS. RESETS +/- TO EMPTY
+// GRABS EACH BUTTON AND INPUTS A NUMBER OR RUNS OPERATOR FUNCTIONS, RESETS +/- TO EMPTY
 buttons.forEach((button)=>{
     button.addEventListener('click',()=>{
         let inputText = button.dataset.input;
@@ -34,7 +34,7 @@ buttons.forEach((button)=>{
         }else{return screen.textContent += inputText;}
     })
 })
-// PUSHES SCREEN ONE TO TWO THEN CLEARS IT AND ADDS THE OPERATOR
+// PUSHES SCREEN CONTENT TO SCREENTWO THEN CLEARS ONE AND ADDS THE OPERATOR TO OPERATOR SCREEN
 function divide(){
     screenTwo.textContent += screen.textContent;
     screen.textContent = "";
@@ -68,7 +68,7 @@ function clear(){
     screenTwo.textContent = "";
     operatorScreen.textContent = "";
 }
-// TURNS SCREEN STRING INTO AN ARRAY THEN POPS OFF END THEN JOINS IT BACK
+// TURNS SCREEN STRING INTO AN ARRAY THEN REMOVES(POPS OFF) LAST DIGIT THEN JOINS IT BACK TO STRING
 function backspace(){
    let yo = Array.from(screen.textContent);
    yo.pop();
@@ -86,7 +86,7 @@ function plusOrMinus(){
         variable = "";
     }else{}
 }
-// EVALUATES ALL THE FUNCTIONS
+// EVALUATES ALL THE FUNCTIONS AND PUSHES EXPRESSION TO SCREENTWO THEN MAKES OPERATORS SCREEN "=" AND PLACES EVALUATED EXPRESSION IN SCREEN ONE
 function equal(){
     let a = screenTwo.textContent;
     let b = screen.textContent;
