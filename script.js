@@ -30,7 +30,7 @@ buttons.forEach((button)=>{
             return plusOrMinus();
         }else if (inputText === "="){
              equal();
-             variable = ""
+             variable = "";
         }else{return screen.textContent += inputText;}
     })
 })
@@ -90,14 +90,16 @@ function plusOrMinus(){
 function equal(){
     let a = screenTwo.textContent;
     let b = screen.textContent;
-
+    clear()
+    screenTwo.textContent = `${a}${operator}${b}`
+    operatorScreen.textContent = "="
     if(operator === "/"){
-        console.log(a/b);
+        screen.textContent = `${a/b}`;
     }else if(operator === "*"){
-        console.log(a*b);
+        screen.textContent = `${a*b}`;
     }else if(operator === "+"){
-        console.log(parseInt(a)+parseInt(b));
+        screen.textContent = parseInt(a)+parseInt(b);
     }else if(operator === "-"){
-        console.log(a-b);
+        screen.textContent = `${a-b}`;
     }else{}
 }
