@@ -4,25 +4,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    justify-content: center;
+    padding:15rem;
+
+}
 .calculatorcontainer{
-    border: solid;
+    background-image: url(images/pexels-scott-webb-3255761.jpg);
+    background-size: cover;
+
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 26rem;
     height:40rem;
+    border-radius: 20px;
+    font-family: 'Dosis', sans-serif;
+    box-shadow: 0 0 7px;
 }
 .allscreens{
+    overflow: hidden;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    border: solid pink;
+    background-color: #efece5;
+
     width: 23rem;
-    height: 7rem;
+    height: 8rem;
     align-items: flex-end;
     justify-content: center;
     font-size: 2.5rem;
     letter-spacing: 2px;
+    cursor: default;
+    margin-top: 2rem;
+    box-shadow: inset 0 0 3.5px;
 
 }
 .topscreens{
@@ -30,19 +47,18 @@
 }
 .screentwo{
     width: auto;
-    height: 3.5rem;
+    height: 50%;
     text-align: end;
 }
 .operator{
-    height:3.5rem;
+    height:50%;
 }
 .screen{
-    height:3.5rem;
+    height:50%;
     width: auto;
     text-align: end;  
 }
 .buttonbox{
-    border: solid;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -53,16 +69,30 @@
     height: 30rem;
 
 }
-
 .buttonbox button{
+    background-color:#7aa4ba;
+    color: #efece5;
+    cursor: pointer;
     width: 4rem;
     height:4rem;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 0 4px black;
+}
+.buttonbox button:active{
+    box-shadow: 0 0 0;
+}
+.buttonbox .color{
+    background-color:#5a9abc;
 
 }
 .buttonbox .zero{
     width: 9.5rem;
+    background-color:#5a9abc;
 }
-.equal{
-
-
+.buttonbox .equal{
+    background-color:#5a9abc;
 }
