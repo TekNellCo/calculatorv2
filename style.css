@@ -1,24 +1,68 @@
+/* ADD WOOD CALCULATOR BACKGROUND */
 *,*::before,*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.screen{
-    height:2rem;
-    width: 20rem;
+.calculatorcontainer{
     border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 26rem;
+    height:40rem;
 }
-.operator{
-    width:10rem;
-    height:2rem;
-    border: solid ;
+.allscreens{
+    display: flex;
+    flex-direction: column;
+    border: solid pink;
+    width: 23rem;
+    height: 7rem;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+
+}
+.topscreens{
+    display: flex;
 }
 .screentwo{
-    width: 25rem;
-    height: 2rem;
-    border: solid red;
+    width: auto;
+    height: 3.5rem;
+    text-align: end;
 }
-button{
+.operator{
+    height:3.5rem;
+}
+.screen{
+    height:3.5rem;
+    width: auto;
+    text-align: end;  
+}
+.buttonbox{
+    border: solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 1.5rem;
+    width: 22rem;
+    height: 30rem;
+
+}
+
+.buttonbox button{
     width: 4rem;
     height:4rem;
+
+}
+.buttonbox .zero{
+    width: 9.5rem;
+}
+.equal{
+
+
 }

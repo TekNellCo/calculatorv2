@@ -5,6 +5,11 @@ let operatorScreen = document.querySelector('.operator');
 let operator = "";
 let variable = "";
 
+// ADD KEYCODE FOR INPUT
+
+
+
+
 // GRABS EACH BUTTON AND INPUTS A NUMBER OR RUNS OPERATOR FUNCTIONS, RESETS +/- TO EMPTY
 buttons.forEach((button)=>{
     button.addEventListener('click',()=>{
