@@ -5,20 +5,14 @@ let operatorScreen = document.querySelector('.operator');
 let operator = "";
 let variable = "";
 
-
 // EVENT LISTENER FOR EACH BUTTON ONSCREEN THAT INPUTS INTO calculatorInput()
 buttons.forEach((b)=>{
-    b.addEventListener('click',()=>{
-        let input = b.dataset.input;
-        calculatorInput(input)}
+    b.addEventListener('click',()=>{calculatorInput(b.dataset.input)}
 )})
-
 // EVENT LISTENER FOR KEYBOARD THAT INPUTS INTO calculatorInput()'
-document.addEventListener('keydown',(e)=>{
-    calculatorInput(e.key)
+document.addEventListener('keydown',(e)=>{calculatorInput(e.key)
 })
-
-// MAIN CALCULATOR FUNCTION THAT RECIEVES ALL INPUTS AND ACTS ACCORDINGLY
+// MAIN CALCULATOR FUNCTION THAT RECIEVES ALL INPUTS TRIGGERS FUNCTIONS WHILE CLEARING 'VARIABLE'
 function calculatorInput(input){
     if(input === "/"){
         divide();
@@ -44,8 +38,7 @@ function calculatorInput(input){
         variable = "";
    }else{return screen.textContent += input;}
 }
-
-// PUSHES SCREEN CONTENT TO SCREENTWO THEN CLEARS ONE AND ADDS THE OPERATOR TO OPERATOR SCREEN
+// PUSHES SCREEN-ONE CONTENT TO SCREEN-TWO THEN CLEARS SCREENONE AND ADDS THE OPERATOR TO OPERATOR SCREEN
 function divide(){
     screenTwo.textContent += screen.textContent;
     screen.textContent = "";
@@ -79,13 +72,13 @@ function clear(){
     screenTwo.textContent = "";
     operatorScreen.textContent = "";
 }
-// TURNS SCREEN STRING INTO AN ARRAY THEN REMOVES(POPS OFF) LAST DIGIT THEN JOINS IT BACK TO STRING
+// TURNS SCREEN-ONE STRING INTO AN ARRAY THEN REMOVES(POPS OFF) LAST DIGIT THEN JOINS IT BACK TO STRING
 function backspace(){
    let yo = Array.from(screen.textContent);
    yo.pop();
    screen.textContent = yo.join("");
 }
-// PLUS OR MINUS BUTTON// ADDS "-" TO SCREEN STRING. IF ALREADY IS NEGATIVE DOES THE SAME AS backspace() BUT uses shift() INSTEAD;
+// PLUS OR MINUS BUTTON// ADDS "-" TO SCREEN-ONE STRING. IF ALREADY IS NEGATIVE DOES THE SAME AS backspace() BUT uses shift() INSTEAD;
 function plusOrMinus(){
     if(variable === ""){
        variable = "-" 
@@ -97,7 +90,7 @@ function plusOrMinus(){
         variable = "";
     }else{}
 }
-// EVALUATES ALL THE FUNCTIONS AND PUSHES EXPRESSION TO SCREENTWO THEN MAKES OPERATORS SCREEN "=" AND PLACES EVALUATED EXPRESSION IN SCREEN ONE
+// EVALUATES SCREEN-ONE,TWO & OPERATOR CONTENT AND PUSHES EXPRESSION TO SCREENTWO THEN MAKES OPERATORS SCREEN "=" AND PLACES EVALUATED EXPRESSION IN SCREEN ONE
 function equal(){
     let a = screenTwo.textContent;
     let b = screen.textContent;
