@@ -5,7 +5,6 @@ let operatorScreen = document.querySelector('.operator');
 let operator = "";
 let variable = "";
 
-// ADD KEYCODE FOR INPUT
 
 
 
@@ -39,6 +38,37 @@ buttons.forEach((button)=>{
         }else{return screen.textContent += inputText;}
     })
 })
+
+// ADD KEYCODE FOR INPUT
+let key = document.addEventListener('keydown',(e)=>{
+    let keyInput = e.key;
+    if(keyInput === "/"){
+        divide();
+        variable = ""
+   }else if( keyInput === "*"){
+        multiply();
+        variable = ""
+   }else if(keyInput === "+"){
+       addition();
+       variable = ""
+  }else if( keyInput === "-"){
+       subtraction();
+       variable = ""
+  }else if(keyInput === 'ArrowDown'){
+        clear();
+        variable = ""
+   }else if(keyInput === 'ArrowLeft'){
+       return backspace();
+   }else if(keyInput === 'ArrowRight'){
+       return plusOrMinus();
+   }else if (keyInput === "Enter"){
+        equal();
+        variable = "";
+   }else{return screen.textContent += keyInput;}
+})
+
+
+
 // PUSHES SCREEN CONTENT TO SCREENTWO THEN CLEARS ONE AND ADDS THE OPERATOR TO OPERATOR SCREEN
 function divide(){
     screenTwo.textContent += screen.textContent;
@@ -95,7 +125,7 @@ function plusOrMinus(){
 function equal(){
     let a = screenTwo.textContent;
     let b = screen.textContent;
-    clear()
+    // clear() dont need?
     screenTwo.textContent = `${a}${operator}${b}`
     operatorScreen.textContent = "="
     if(operator === "/"){

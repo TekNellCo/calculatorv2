@@ -7,13 +7,14 @@
 body{
     display: flex;
     justify-content: center;
-    padding:15rem;
+    align-items: center;
+    height: 100vh;
+    /* padding:15rem; */
 
 }
 .calculatorcontainer{
     background-image: url(images/resize-scott-web.jpg);
     background-size: cover;
-
     display: flex;
     flex-direction: column;
     justify-content: space-around;
