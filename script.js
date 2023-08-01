@@ -6,68 +6,44 @@ let operator = "";
 let variable = "";
 
 
+// EVENT LISTENER FOR EACH BUTTON ONSCREEN THAT INPUTS INTO calculatorInput()
+buttons.forEach((b)=>{
+    b.addEventListener('click',()=>{
+        let input = b.dataset.input;
+        calculatorInput(input)}
+)})
 
-
-
-// GRABS EACH BUTTON AND INPUTS A NUMBER OR RUNS OPERATOR FUNCTIONS, RESETS +/- TO EMPTY
-buttons.forEach((button)=>{
-    button.addEventListener('click',()=>{
-        let inputText = button.dataset.input;
-        if(inputText === "/"){
-             divide();
-             variable = ""
-        }else if( inputText === "*"){
-             multiply();
-             variable = ""
-        }else if(inputText === "+"){
-            addition();
-            variable = ""
-       }else if( inputText === "-"){
-            subtraction();
-            variable = ""
-       }else if(inputText === 'CLEAR'){
-             clear();
-             variable = ""
-        }else if(inputText === 'BACKSPACE'){
-            return backspace();
-        }else if(inputText === 'OPPOSITE'){
-            return plusOrMinus();
-        }else if (inputText === "="){
-             equal();
-             variable = "";
-        }else{return screen.textContent += inputText;}
-    })
+// EVENT LISTENER FOR KEYBOARD THAT INPUTS INTO calculatorInput()'
+document.addEventListener('keydown',(e)=>{
+    calculatorInput(e.key)
 })
 
-// ADD KEYCODE FOR INPUT
-let key = document.addEventListener('keydown',(e)=>{
-    let keyInput = e.key;
-    if(keyInput === "/"){
+// MAIN CALCULATOR FUNCTION THAT RECIEVES ALL INPUTS AND ACTS ACCORDINGLY
+function calculatorInput(input){
+    if(input === "/"){
         divide();
         variable = ""
-   }else if( keyInput === "*"){
+   }else if( input === "*"){
         multiply();
         variable = ""
-   }else if(keyInput === "+"){
+   }else if(input === "+"){
        addition();
        variable = ""
-  }else if( keyInput === "-"){
+  }else if( input === "-"){
        subtraction();
        variable = ""
-  }else if(keyInput === 'ArrowDown'){
+  }else if(input === 'CLEAR' || input === "ArrowDown"){
         clear();
         variable = ""
-   }else if(keyInput === 'ArrowLeft'){
+   }else if(input === 'BACKSPACE' || input === "ArrowLeft"){
        return backspace();
-   }else if(keyInput === 'ArrowRight'){
+   }else if(input === 'OPPOSITE' || input === "ArrowRight"){
        return plusOrMinus();
-   }else if (keyInput === "Enter"){
+   }else if (input === "=" || input === "Enter"){
         equal();
         variable = "";
-   }else{return screen.textContent += keyInput;}
-})
-
-
+   }else{return screen.textContent += input;}
+}
 
 // PUSHES SCREEN CONTENT TO SCREENTWO THEN CLEARS ONE AND ADDS THE OPERATOR TO OPERATOR SCREEN
 function divide(){
